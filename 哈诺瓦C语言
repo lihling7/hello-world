@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+void hanoi(int num, char x, char y, char z);
+
+void hanoi(int num, char x, char y, char z)
+{
+	if(num == 1)
+	{
+		printf("%c -> %c\n", x, z);
+	}
+	else
+	{
+		hanoi(num - 1, x, z, y);
+		printf("%c -> %c\n", x, z);
+		hanoi(num - 1, y, x, z);
+	}
+}
+
+int main(void)
+{
+	int num;
+	char x = 'a', y = 'b', z = 'c';
+	
+	printf("请输入汉诺塔层数:");
+	scanf("%d", &num);
+	
+	hanoi(num, x, y, z);
+	
+	return 0;
+}
